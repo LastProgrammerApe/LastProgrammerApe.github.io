@@ -79,13 +79,27 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta name="description" content="关于ES的操作总结：要求定义索引 movie 属于的类型是type ，其中有两个属性 一个属性为name 要求不适用分词器 ，一个属性为time 要求为integer一个为 actor 要求使用分词器   对于一个string类型的数据会有3个属性 type指定数据类型为string，analyzer：选择什么类型的分词器指定分词器为standard及默认分词器  index ：指定分词器的状态，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ES的操作总结">
+<meta property="og:url" content="http://yoursite.com/2019/08/02/neo4j的描述/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="关于ES的操作总结：要求定义索引 movie 属于的类型是type ，其中有两个属性 一个属性为name 要求不适用分词器 ，一个属性为time 要求为integer一个为 actor 要求使用分词器   对于一个string类型的数据会有3个属性 type指定数据类型为string，analyzer：选择什么类型的分词器指定分词器为standard及默认分词器  index ：指定分词器的状态，">
 <meta property="og:locale" content="default">
+<meta property="og:image" content="en-resource://database/418:1">
+<meta property="og:image" content="en-resource://database/414:1">
+<meta property="og:image" content="en-resource://database/416:1">
+<meta property="og:image" content="en-resource://database/422:1">
+<meta property="og:image" content="en-resource://database/420:1">
+<meta property="og:image" content="en-resource://database/424:1">
+<meta property="og:image" content="en-resource://database/426:1">
+<meta property="og:image" content="en-resource://database/428:1">
+<meta property="og:image" content="en-resource://database/430:1">
+<meta property="og:updated_time" content="2019-08-02T08:08:30.373Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="ES的操作总结">
+<meta name="twitter:description" content="关于ES的操作总结：要求定义索引 movie 属于的类型是type ，其中有两个属性 一个属性为name 要求不适用分词器 ，一个属性为time 要求为integer一个为 actor 要求使用分词器   对于一个string类型的数据会有3个属性 type指定数据类型为string，analyzer：选择什么类型的分词器指定分词器为standard及默认分词器  index ：指定分词器的状态，">
+<meta name="twitter:image" content="en-resource://database/418:1">
 
 
 
@@ -115,13 +129,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/">
+  <link rel="canonical" href="http://yoursite.com/2019/08/02/neo4j的描述/">
 
 
 
 
 
-  <title>Hexo</title>
+  <title>ES的操作总结 | Hexo</title>
   
 
 
@@ -140,8 +154,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -214,9 +227,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -246,9 +259,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/08/02/neo4j的描述/" itemprop="url">ES的操作总结</a></h1>
+          <h1 class="post-title" itemprop="name headline">ES的操作总结</h1>
         
 
         <div class="post-meta">
@@ -298,9 +309,7 @@
       
 
       
-        
-          
-            <p>关于ES的操作总结：<br>要求定义索引 movie 属于的类型是type ，其中有两个属性 一个属性为name 要求不适用分词器 ，一个属性为time 要求为integer<br>一个为 actor 要求使用分词器  </p>
+        <p>关于ES的操作总结：<br>要求定义索引 movie 属于的类型是type ，其中有两个属性 一个属性为name 要求不适用分词器 ，一个属性为time 要求为integer<br>一个为 actor 要求使用分词器  </p>
 <p>对于一个string类型的数据会有3个属性<br><img src="en-resource://database/418:1" alt="bf87c189ef14ca455356160da55700c2.png"></p>
 <p>type指定数据类型为string，analyzer：选择什么类型的分词器指定分词器为standard及默认分词器  index ：指定分词器的状态，有3种状态：<br>1.analyzed：首先分析字符串，然后索引它。换句话说，以全文索引这个域。<br>2.not_analyzed  索引这个域，所以它能够被搜索，但索引的是精确值。不会对它进行分析。<br>3.no不索引这个域。这个域不会被搜索到。<br>查看表结构：索引/_mapping/类型<br><img src="en-resource://database/414:1" alt="ed5630ca3a5cc88c5c389152b36103f9.png"><br>查询所有<br><img src="en-resource://database/416:1" alt="d7704fe46c6662f1122a8ce9d08d9f0b.png"><br>关于查询所有电影名是你太美的数据精确查询使用term关键字</p>
 <p><img src="en-resource://database/422:1" alt="4cfca1b397b34755e2e2731cfbe88e22.png"></p>
@@ -318,8 +327,6 @@
 <p>对于上面多个精确查询，同一个类型的可以使用terms：<br><img src="en-resource://database/428:1" alt="4746cbf9801119b1db7d0fd2098810b8.png"></p>
 <p>范围查询：<img src="en-resource://database/430:1" alt="5278ae67b3b4afb6b69e5589d625616c.png"></p>
 
-          
-        
       
     </div>
     
@@ -336,154 +343,28 @@
       
 
       
-
-      
-
       
       
-        <div class="post-eof"></div>
+
       
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/02/my-first-blog/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="John Doe">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/08/02/my-first-blog/" itemprop="url">张晓楠你家狗子名字不错</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-08-02T14:39:59+08:00">
-                2019-08-02
-              </time>
+              <a href="/2019/08/02/my-first-blog/" rel="next" title="张晓楠你家狗子名字不错">
+                <i class="fa fa-chevron-left"></i> 张晓楠你家狗子名字不错
+              </a>
             
+          </div>
 
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
             
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/联系日志/" itemprop="url" rel="index">
-                    <span itemprop="name">联系日志</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
+          </div>
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          
-            <p>哈哈哈哈哈哈<br>你家猫也好看</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -493,142 +374,11 @@
   </article>
 
 
-    
-      
 
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/02/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="John Doe">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/08/02/hello-world/" itemprop="url">Hello World</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-08-02T11:43:55+08:00">
-                2019-08-02
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-          
-        
+    <div class="post-spread">
       
     </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
   </div>
-  
-  
-  
-  </article>
-
-
-    
-  </section>
-
-  
 
 
           </div>
@@ -636,6 +386,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -841,6 +595,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
