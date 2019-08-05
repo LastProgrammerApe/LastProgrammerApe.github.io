@@ -79,26 +79,27 @@
 
 
 
-<meta name="description" content="关于ES的操作总结：要求定义索引 movie 属于的类型是type ，其中有两个属性 一个属性为name 要求不适用分词器 ，一个属性为time 要求为integer一个为 actor 要求使用分词器   对于一个string类型的数据会有3个属性 type指定数据类型为string，analyzer：选择什么类型的分词器指定分词器为standard及默认分词器  index ：指定分词器的状态，">
+<meta name="description" content="关关于ES的操作总结：要求定义索引 movie 属于的类型是type ，其中有两个属性 一个属性为name 要求不适用分词器 ，一个属性为time 要求为integer一个为 actor 要求使用分词器   对于一个string类型的数据会有3个属性 type指定数据类型为string，analyzer：选择什么类型的分词器指定分词器为standard及默认分词器  index ：指定分词器的状态">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ES的操作总结">
 <meta property="og:url" content="http://yoursite.com/2019/08/02/项目中关于Listlef方法的总结/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="关于ES的操作总结：要求定义索引 movie 属于的类型是type ，其中有两个属性 一个属性为name 要求不适用分词器 ，一个属性为time 要求为integer一个为 actor 要求使用分词器   对于一个string类型的数据会有3个属性 type指定数据类型为string，analyzer：选择什么类型的分词器指定分词器为standard及默认分词器  index ：指定分词器的状态，">
+<meta property="og:description" content="关关于ES的操作总结：要求定义索引 movie 属于的类型是type ，其中有两个属性 一个属性为name 要求不适用分词器 ，一个属性为time 要求为integer一个为 actor 要求使用分词器   对于一个string类型的数据会有3个属性 type指定数据类型为string，analyzer：选择什么类型的分词器指定分词器为standard及默认分词器  index ：指定分词器的状态">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://yoursite.com/2019/08/02/imgs/Image1.png">
-<meta property="og:image" content="http://github.com/LastProgrammerApe/LastProgrammerApe.github.io/raw/master/imgs1/Image2.png">
-<meta property="og:image" content="http://github.com/LastProgrammerApe/LastProgrammerApe.github.io/raw/master/imgs1/Image3.png">
-<meta property="og:image" content="http://github.com/LastProgrammerApe/LastProgrammerApe.github.io/raw/master/imgs1/Image4.png">
-<meta property="og:image" content="http://github.com/LastProgrammerApe/LastProgrammerApe.github.io/raw/master/imgs1/Image5.png">
+<meta property="og:image" content="http://github.com/LastProgrammerApe/LastProgrammerApe.github.io/raw/master/images/Image.png">
+<meta property="og:image" content="en-resource://database/414:1">
+<meta property="og:image" content="en-resource://database/416:1">
+<meta property="og:image" content="en-resource://database/422:1">
+<meta property="og:image" content="en-resource://database/420:1">
+<meta property="og:image" content="en-resource://database/424:1">
 <meta property="og:image" content="en-resource://database/426:1">
-<meta property="og:image" content="http://github.com/LastProgrammerApe/LastProgrammerApe.github.io/raw/master/imgs1/Image6.png">
-<meta property="og:image" content="http://github.com/LastProgrammerApe/LastProgrammerApe.github.io/raw/master/imgs1/Image7.png">
-<meta property="og:updated_time" content="2019-08-05T02:18:38.418Z">
+<meta property="og:image" content="en-resource://database/428:1">
+<meta property="og:image" content="en-resource://database/430:1">
+<meta property="og:updated_time" content="2019-08-05T02:39:06.836Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ES的操作总结">
-<meta name="twitter:description" content="关于ES的操作总结：要求定义索引 movie 属于的类型是type ，其中有两个属性 一个属性为name 要求不适用分词器 ，一个属性为time 要求为integer一个为 actor 要求使用分词器   对于一个string类型的数据会有3个属性 type指定数据类型为string，analyzer：选择什么类型的分词器指定分词器为standard及默认分词器  index ：指定分词器的状态，">
-<meta name="twitter:image" content="http://yoursite.com/2019/08/02/imgs/Image1.png">
+<meta name="twitter:description" content="关关于ES的操作总结：要求定义索引 movie 属于的类型是type ，其中有两个属性 一个属性为name 要求不适用分词器 ，一个属性为time 要求为integer一个为 actor 要求使用分词器   对于一个string类型的数据会有3个属性 type指定数据类型为string，analyzer：选择什么类型的分词器指定分词器为standard及默认分词器  index ：指定分词器的状态">
+<meta name="twitter:image" content="http://github.com/LastProgrammerApe/LastProgrammerApe.github.io/raw/master/images/Image.png">
 
 
 
@@ -308,12 +309,12 @@
       
 
       
-        <p>关于ES的操作总结：<br>要求定义索引 movie 属于的类型是type ，其中有两个属性 一个属性为name 要求不适用分词器 ，一个属性为time 要求为integer<br>一个为 actor 要求使用分词器  </p>
-<p>对于一个string类型的数据会有3个属性<br><img src alt="bf87c189ef14ca455356160da55700c2.png"></p>
-<p>type指定数据类型为string，analyzer：选择什么类型的分词器指定分词器为standard及默认分词器  index ：指定分词器的状态，有3种状态：<br>1.analyzed：首先分析字符串，然后索引它。换句话说，以全文索引这个域。<br>2.not_analyzed  索引这个域，所以它能够被搜索，但索引的是精确值。不会对它进行分析。<br>3.no不索引这个域。这个域不会被搜索到。<br>查看表结构：索引/_mapping/类型LastProgrammerApe.github.io<br><img src="../imgs/Image1.png" alt="ed5630ca3a5cc88c5c389152b36103f9.png"><br>查询所有<br><img src="http://github.com/LastProgrammerApe/LastProgrammerApe.github.io/raw/master/imgs1/Image2.png" alt="d7704fe46c6662f1122a8ce9d08d9f0b.png"><br>关于查询所有电影名是你太美的数据精确查询使用term关键字</p>
-<p><img src="http://github.com/LastProgrammerApe/LastProgrammerApe.github.io/raw/master/imgs1/Image3.png" alt="4cfca1b397b34755e2e2731cfbe88e22.png"></p>
-<p>关于查询所有蔡姓演员则是全文搜索，使用match关键字<br><img src="http://github.com/LastProgrammerApe/LastProgrammerApe.github.io/raw/master/imgs1/Image4.png" alt="dbdf88f98587e53ed8600d52595140f5.png"></p>
-<p>、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、<br>关于测试分析器：<br>   <img src="http://github.com/LastProgrammerApe/LastProgrammerApe.github.io/raw/master/imgs1/Image5.png" alt="6d802d30a343eaf69ac3668cae9340ec.png"><br>   测试分词器：/_analyze</p>
+        <p>关关于ES的操作总结：<br>要求定义索引 movie 属于的类型是type ，其中有两个属性 一个属性为name 要求不适用分词器 ，一个属性为time 要求为integer<br>一个为 actor 要求使用分词器  </p>
+<p>对于一个string类型的数据会有3个属性<br><img src="http://github.com/LastProgrammerApe/LastProgrammerApe.github.io/raw/master/images/Image.png" alt="bf87c189ef14ca455356160da55700c2.png"></p>
+<p>type指定数据类型为string，analyzer：选择什么类型的分词器指定分词器为standard及默认分词器  index ：指定分词器的状态，有3种状态：<br>1.analyzed：首先分析字符串，然后索引它。换句话说，以全文索引这个域。<br>2.not_analyzed  索引这个域，所以它能够被搜索，但索引的是精确值。不会对它进行分析。<br>3.no不索引这个域。这个域不会被搜索到。<br>查看表结构：索引/_mapping/类型<br><img src="en-resource://database/414:1" alt="ed5630ca3a5cc88c5c389152b36103f9.png"><br>查询所有<br><img src="en-resource://database/416:1" alt="d7704fe46c6662f1122a8ce9d08d9f0b.png"><br>关于查询所有电影名是你太美的数据精确查询使用term关键字</p>
+<p><img src="en-resource://database/422:1" alt="4cfca1b397b34755e2e2731cfbe88e22.png"></p>
+<p>关于查询所有蔡姓演员则是全文搜索，使用match关键字<br><img src="en-resource://database/420:1" alt="dbdf88f98587e53ed8600d52595140f5.png"></p>
+<p>、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、<br>关于测试分析器：<br>   <img src="en-resource://database/424:1" alt="6d802d30a343eaf69ac3668cae9340ec.png"><br>   测试分词器：/_analyze</p>
 <p>   、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、<br>   关于查询，有的时候我们并不希望搜索结果时加上评分因为精确查询只关心是否是该值，并不关心结果的相似程度，所以我们不应该加评分，这样会使搜索过程变慢，所以要加上constant_score和 filter把查询转化为一个过滤器。</p>
 <p>查询置于 filter 语句内不进行评分或相关度的计算，所以所有的结果都会返回一个默认评分 </p>
 <p>   <img src="en-resource://database/426:1" alt="abe4c922d061bbb4792709ec600cad4b.png"></p>
@@ -323,8 +324,8 @@
 <p>must:所有语句都必须（must）匹配，等同于and<br>must_not:所有语句都不能（must not）匹配，于NOT等价<br>should至少有一个语句匹配，等价于OR<br>现在写一个查询语言，要求演员中有蔡姓（全文搜索），电影时长是80或者100，且电影名不能是“你太美”语句如下：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;query&quot;: &#123;</span><br><span class="line">    &quot;filtered&quot;: &#123;</span><br><span class="line">      &quot;filter&quot;: &#123;</span><br><span class="line">        &quot;bool&quot;: &#123;</span><br><span class="line">          &quot;must&quot;: [</span><br><span class="line">            &#123;</span><br><span class="line">              &quot;match&quot;: &#123;</span><br><span class="line">                &quot;actor&quot;: &quot;蔡&quot;</span><br><span class="line">              &#125;</span><br><span class="line">            &#125;</span><br><span class="line">          ],</span><br><span class="line">          &quot;should&quot;: [</span><br><span class="line">            &#123;</span><br><span class="line">              &quot;term&quot;: &#123;</span><br><span class="line">                &quot;time&quot;: 100</span><br><span class="line">              &#125;</span><br><span class="line">            &#125;,</span><br><span class="line">            &#123;</span><br><span class="line">              &quot;term&quot;: &#123;</span><br><span class="line">                &quot;time&quot;: 80</span><br><span class="line">              &#125;</span><br><span class="line">            &#125;</span><br><span class="line">          ],</span><br><span class="line">          &quot;must_not&quot;: &#123;</span><br><span class="line">            &quot;term&quot;: &#123;</span><br><span class="line">              &quot;name&quot;: &quot;你太美&quot;</span><br><span class="line">            &#125;</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>对于上面多个精确查询，同一个类型的可以使用terms：<br><img src="http://github.com/LastProgrammerApe/LastProgrammerApe.github.io/raw/master/imgs1/Image6.png" alt="4746cbf9801119b1db7d0fd2098810b8.png"></p>
-<p>范围查询：<img src="http://github.com/LastProgrammerApe/LastProgrammerApe.github.io/raw/master/imgs1/Image7.png" alt="5278ae67b3b4afb6b69e5589d625616c.png"></p>
+<p>对于上面多个精确查询，同一个类型的可以使用terms：<br><img src="en-resource://database/428:1" alt="4746cbf9801119b1db7d0fd2098810b8.png"></p>
+<p>范围查询：<img src="en-resource://database/430:1" alt="5278ae67b3b4afb6b69e5589d625616c.png"></p>
 
       
     </div>
